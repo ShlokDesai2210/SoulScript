@@ -1,0 +1,58 @@
+[
+    {
+        "id": "writing",
+        "name": "Writing & Content",
+        "icon": "✍️",
+        "description": "Blog posts, emails, essays, social media, copywriting",
+        "examples": ["Write me a blog post about...", "Help me draft an email to..."],
+        "top_ais": ["chatgpt", "claude", "gemini"]
+    },
+    {
+        "id": "coding",
+        "name": "Code & Development",
+        "icon": "💻",
+        "description": "Write code, debug, explain, build apps & websites",
+        "examples": ["Build me a to-do app in...", "Fix this bug..."],
+        "top_ais": ["gemini", "claude", "copilot"]
+    },
+    {
+        "id": "image",
+        "name": "Image & Art",
+        "icon": "🎨",
+        "description": "Generate images, art, logos, illustrations, photos",
+        "examples": ["Design a logo for...", "Create an image of..."],
+        "top_ais": ["midjourney", "dalle", "gemini"]
+    },
+    {
+        "id": "research",
+        "name": "Research & Analysis",
+        "icon": "🔍",
+        "description": "Find information, analyze data, compare options",
+        "examples": ["Research the best...", "Compare X vs Y..."],
+        "top_ais": ["perplexity", "gemini", "claude"]
+    },
+    {
+        "id": "creative",
+        "name": "Creative & Storytelling",
+        "icon": "🎭",
+        "description": "Stories, poetry, scripts, worldbuilding, RPG",
+        "examples": ["Write a story about...", "Create a character who..."],
+        "top_ais": ["chatgpt", "claude", "gemini"]
+    },
+    {
+        "id": "summarize",
+        "name": "Summarize & Simplify",
+        "icon": "📋",
+        "description": "Summarize documents, simplify concepts, TL;DR",
+        "examples": ["Summarize this article...", "Explain like I'm 5..."],
+        "top_ais": ["claude", "gemini", "chatgpt"]
+    },
+    {
+        "id": "translate",
+        "name": "Translation & Language",
+        "icon": "🌍",
+        "description": "Translate text, learn languages, grammar check",
+        "examples": ["Translate this to...", "How do you say..."],
+        "top_ais": ["gemini", "chatgpt", "claude"]
+    }
+]

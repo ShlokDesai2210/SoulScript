@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulScript — Speak Human. We'll Speak AI.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- ========== LEFT SIDEBAR ========== -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo">
+                    <span class="logo-icon">🔥</span>
+                    <span class="logo-text">SoulScript</span>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-page="home">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-label">Home</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="new-prompt">
+                        <span class="nav-icon">✨</span>
+                        <span class="nav-label">New Prompt</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="history">
+                        <span class="nav-icon">🕐</span>
+                        <span class="nav-label">History</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="ai-guide">
+                        <span class="nav-icon">🤖</span>
+                        <span class="nav-label">AI Guide</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="templates">
+                        <span class="nav-icon">📄</span>
+                        <span class="nav-label">Templates</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sidebar-bottom">
+                <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                    <span class="theme-icon-light">☀️</span>
+                    <span class="theme-icon-dark">🌙</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ========== MOBILE HEADER ========== -->
+        <header class="mobile-header">
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="logo">
+                <span class="logo-icon">🔥</span>
+                <span class="logo-text">SoulScript</span>
+            </div>
+            <button class="theme-toggle-mobile" id="themeToggleMobile">
+                <span class="theme-icon-light">☀️</span>
+                <span class="theme-icon-dark">🌙</span>
+            </button>
+        </header>
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <main class="main-content">
+            
+            <!-- === STAGE 1: HOME / BRAIN DUMP === -->
+            <section class="stage active" id="stageHome">
+                <div class="greeting">
+                    <h1>Good afternoon 👋</h1>
+                    <p class="subtitle">What's on your mind today?</p>
+                </div>
+
+                <div class="thought-card">
+                    <h2 class="card-title">What's on your mind?</h2>
+                    <textarea 
+                        id="thoughtInput" 
+                        class="thought-input" 
+                        placeholder="Just dump your thoughts here... messy is totally fine. For example: 'i want to make a cool app that tracks my gym workouts and tells me what to eat'"
+                        rows="6"
+                    ></textarea>
+                    
+                    <!-- Category pills -->
+                    <div class="category-pills" id="categoryPills">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <button class="btn-primary" id="transformBtn" disabled>
+                        <span class="btn-text">Transform My Thought</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Quick Templates -->
+                <div class="templates-section">
+                    <h3 class="section-title">Quick Templates</h3>
+                    <div class="templates-grid">
+                        <button class="template-card" data-template="Help me write a professional email to my boss about requesting time off for a personal project">
+                            <span class="template-icon">✉️</span>
+                            <span class="template-title">Professional Email</span>
+                            <span class="template-desc">Draft emails for any situation</span>
+                        </button>
+                        <button class="template-card" data-template="I want to build a simple website for my small business that shows our services and lets people contact us">
+                            <span class="template-icon">🌐</span>
+                            <span class="template-title">Build a Website</span>
+                            <span class="template-desc">Get code & planning help</span>
+                        </button>
+                        <button class="template-card" data-template="Create a modern minimalist logo for a coffee shop called 'Morning Brew' with warm earthy colors">
+                            <span class="template-icon">🎨</span>
+                            <span class="template-title">Design a Logo</span>
+                            <span class="template-desc">Generate image prompts</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- === STAGE 2: LOADING === -->
+            <section class="stage" id="stageLoading">
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                    <h2>Transforming your thought...</h2>
+                    <p class="loading-subtitle">SoulScript is interpreting your intent and finding the best AI for the job</p>
+                </div>
+            </section>
+
+            <!-- === STAGE 3: RESULTS === -->
+            <section class="stage" id="stageResults">
+                <div class="results-header">
+                    <button class="btn-back" id="backBtn">
+                        <span>←</span> New Prompt
+                    </button>
+                    <div class="breadcrumb">
+                        Home → New Prompt → <strong>Results</strong>
+                    </div>
+                </div>
+
+                <!-- Original thought -->
+                <div class="original-thought" id="originalThought">
+                    <span class="label">Original thought:</span>
+                    <span class="thought-text" id="originalThoughtText"></span>
+                </div>
+
+                <!-- Intent understanding -->
+                <div class="intent-card" id="intentCard">
+                    <span class="intent-icon">🧠</span>
+                    <span class="intent-label">What you actually want:</span>
+                    <p class="intent-text" id="intentText"></p>
+                </div>
+
+                <div class="results-grid">
+                    <!-- Left: AI Recommendations -->
+                    <div class="results-left">
+                        <h3 class="section-title">Best AI for this</h3>
+                        <div class="ai-recommendations" id="aiRecommendations">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Right: Generated Prompt -->
+                    <div class="results-right">
+                        <h3 class="section-title">Your prompt, refined ✨</h3>
+                        <div class="prompt-card">
+                            <pre class="prompt-text" id="promptText"></pre>
+                            <div class="prompt-actions">
+                                <button class="btn-copy" id="copyBtn">
+                                    <span class="copy-icon">📋</span>
+                                    <span class="copy-text">Copy</span>
+                                </button>
+                                <button class="btn-secondary" id="refineBtn">
+                                    <span>🔄</span> Refine
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips -->
+                <div class="tips-section">
+                    <h3 class="section-title">💡 Tips for better results</h3>
+                    <div class="tips-grid" id="tipsGrid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- === AI GUIDE PAGE === -->
+            <section class="stage" id="stageAiGuide">
+                <div class="greeting">
+                    <h1>AI Guide 🤖</h1>
+                    <p class="subtitle">Which AI should you use? Here's a breakdown of each tool and what it's best at.</p>
+                </div>
+                <div class="ai-guide-grid" id="aiGuideGrid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- === HISTORY PAGE === -->
+            <section class="stage" id="stageHistory">
+                <div class="greeting">
+                    <h1>History 🕐</h1>
+                    <p class="subtitle">Your previous prompt transformations</p>
+                </div>
+                <div class="history-list" id="historyList">
+                    <div class="empty-state">
+                        <span class="empty-icon">📭</span>
+                        <p>No prompts yet. Go create your first one!</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ========== RIGHT PANEL: AI GUIDE (visible on home) ========== -->
+        <aside class="right-panel" id="rightPanel">
+            <h3 class="panel-title">AI Guide</h3>
+            <div class="ai-mini-list" id="aiMiniList">
+                <!-- Populated by JavaScript -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+{
+    "gemini": {
+        "name": "Gemini",
+        "tagline": "Google's multimodal powerhouse",
+        "color": "#4285F4",
+        "icon": "✦",
+        "best_for": [
+            "Research & analysis",
+            "Coding & debugging",
+            "Multimodal tasks (text + image)",
+            "Google ecosystem integration",
+            "Long-context understanding",
+            "Data analysis"
+        ],
+        "prompt_style": "Gemini responds best to detailed, structured prompts with clear context and specific output requirements.",
+        "free_tier": true,
+        "url": "https://gemini.google.com"
+    },
+    "chatgpt": {
+        "name": "ChatGPT",
+        "tagline": "The conversational all-rounder",
+        "color": "#10A37F",
+        "icon": "◉",
+        "best_for": [
+            "General conversation",
+            "Creative writing",
+            "Brainstorming",
+            "Explaining concepts",
+            "Task planning",
+            "Plugins & tools"
+        ],
+        "prompt_style": "ChatGPT works well with conversational prompts. Be specific about tone, length, and audience.",
+        "free_tier": true,
+        "url": "https://chat.openai.com"
+    },
+    "claude": {
+        "name": "Claude",
+        "tagline": "The thoughtful analyst",
+        "color": "#D97757",
+        "icon": "◈",
+        "best_for": [
+            "Long document analysis",
+            "Code review & writing",
+            "Nuanced reasoning",
+            "Safety-conscious tasks",
+            "Academic writing",
+            "Following complex instructions"
+        ],
+        "prompt_style": "Claude excels with detailed context. Provide background, constraints, and desired format explicitly.",
+        "free_tier": true,
+        "url": "https://claude.ai"
+    },
+    "midjourney": {
+        "name": "Midjourney",
+        "tagline": "The artistic visionary",
+        "color": "#7C3AED",
+        "icon": "◐",
+        "best_for": [
+            "Artistic illustrations",
+            "Concept art",
+            "Fantasy & sci-fi imagery",
+            "Stylized portraits",
+            "Abstract art",
+            "Mood boards"
+        ],
+        "prompt_style": "Use descriptive visual language: art style, lighting, mood, composition, camera angle. Add --ar for aspect ratio, --v for version.",
+        "free_tier": false,
+        "url": "https://midjourney.com"
+    },
+    "dalle": {
+        "name": "DALL-E",
+        "tagline": "The photorealistic creator",
+        "color": "#FF6F00",
+        "icon": "◑",
+        "best_for": [
+            "Photorealistic images",
+            "Product mockups",
+            "Image editing & inpainting",
+            "Simple illustrations",
+            "Social media graphics",
+            "Logo concepts"
+        ],
+        "prompt_style": "Be descriptive about the scene, style, and mood. DALL-E handles natural language well. Specify 'photorealistic', 'illustration', etc.",
+        "free_tier": true,
+        "url": "https://openai.com/dall-e"
+    },
+    "copilot": {
+        "name": "GitHub Copilot",
+        "tagline": "The code companion",
+        "color": "#0078D4",
+        "icon": "⬡",
+        "best_for": [
+            "Code completion",
+            "Writing functions from comments",
+            "Unit test generation",
+            "Code refactoring",
+            "Learning new languages",
+            "Documentation generation"
+        ],
+        "prompt_style": "Write clear comments describing what the code should do. Include function signatures, expected inputs/outputs, and edge cases.",
+        "free_tier": true,
+        "url": "https://github.com/features/copilot"
+    },
+    "perplexity": {
+        "name": "Perplexity",
+        "tagline": "The research engine",
+        "color": "#6B7280",
+        "icon": "◎",
+        "best_for": [
+            "Real-time web research",
+            "Fact-checking",
+            "Cited answers",
+            "Current events",
+            "Academic research",
+            "Comparison shopping"
+        ],
+        "prompt_style": "Ask specific questions. Perplexity excels at finding and citing current information. Be precise about what you need to know.",
+        "free_tier": true,
+        "url": "https://perplexity.ai"
+    }
+}
